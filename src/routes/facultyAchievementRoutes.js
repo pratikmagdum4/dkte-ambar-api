@@ -9,18 +9,49 @@ router.use(express.urlencoded({ extended: true }));
 // Submit new data
 router.post("/submit", async (req, res) => {
   try {
-    console.log("The req is ", req.body);
+    const achievementsArray = req.body;
+    console.log("Raw request body:", achievementsArray);
 
-    // Ensure the data is a JSON object
-    const jsonData = JSON.parse(JSON.stringify(req.body));
-    console.log("The JSON data is ", jsonData);
+    const savedAchievements = [];
+    for (const achievement of achievementsArray) {
+      const { name, title, agency, isbnno, chapter } = achievement;
 
-    // Use the parsed jsonData directly to create a new document
-    const newAchievement = new FacultyAchievement(jsonData);
-    const savedAchievement = await newAchievement.save();
+      // Log the parsed data
+      console.log("Parsed data:", { name, title, agency, isbnno, chapter });
 
-    console.log("Saved achievement:", savedAchievement);
-    res.status(200).send(savedAchievement);
+      // Check if the achievement already exists
+      let existingAchievement = await FacultyAchievement.findOne({
+        name,
+        title,
+        agency,
+        isbnno,
+        chapter,
+      });
+
+      if (existingAchievement) {
+        console.log("Achievement already exists:", existingAchievement);
+        savedAchievements.push(existingAchievement);
+      } else {
+        // Create a new achievement document
+        const newAchievement = new FacultyAchievement({
+          name,
+          title,
+          agency,
+          isbnno,
+          chapter,
+        });
+
+        // Save the new achievement
+        const savedAchievement = await newAchievement.save();
+        savedAchievements.push(savedAchievement);
+
+        // Log the saved document
+        console.log("Saved achievement:", savedAchievement);
+      }
+    }
+
+    // Send response
+    res.status(200).send(savedAchievements);
   } catch (error) {
     console.error("Error saving achievement:", error);
     res.status(400).send(error);
