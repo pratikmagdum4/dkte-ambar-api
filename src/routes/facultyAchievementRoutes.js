@@ -6,6 +6,7 @@ import FacultyAchievement from "../models/facultyAchievement.js";
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
+
 // Submit new data
 router.post("/submit", async (req, res) => {
   try {
