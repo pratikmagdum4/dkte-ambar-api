@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const FacultyAchievement = require("../models/facultyAchievement");
+import FacultyAchievement from "../models/facultyAchievement";
 
 // Middleware to parse JSON and URL-encoded bodies
 router.use(express.json());
@@ -37,4 +37,4 @@ router.get("/getData", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

@@ -1,8 +1,6 @@
-const StudentAchievement = require("../models/studentAchievement");
+import StudentAchievement from "../models/studentAchievement";
 
-
-
-exports.createStudentAchievement = async (req, res) => {
+export const createStudentAchievement = async (req, res) => {
   const achievements = req.body;
   try {
     await StudentAchievement.insertMany(achievements);
@@ -12,7 +10,7 @@ exports.createStudentAchievement = async (req, res) => {
   }
 };
 
-exports.getStudentAchievements = async (req, res) => {
+export const getStudentAchievements = async (req, res) => {
   try {
     const data = await StudentAchievement.find();
     res.status(200).json(data);

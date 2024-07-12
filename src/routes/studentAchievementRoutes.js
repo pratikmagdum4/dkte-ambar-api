@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const studentAchievementController = require("../controllers/studentAchievementController");
+import studentAchievementController from "../controllers/studentAchievementController";
 
 router.post("/submit", studentAchievementController.createStudentAchievement);
 router.get("/getData", studentAchievementController.getStudentAchievements);
 
-module.exports = router;
+export default router;

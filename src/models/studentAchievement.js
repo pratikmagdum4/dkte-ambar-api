@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const studentAchievementSchema = new mongoose.Schema({
   studentName: { type: String, required: true },
@@ -8,4 +8,4 @@ const studentAchievementSchema = new mongoose.Schema({
   description: { type: String },
 });
 
-module.exports = mongoose.model("StudentAchievement", studentAchievementSchema);
+export default mongoose.model("StudentAchievement", studentAchievementSchema);

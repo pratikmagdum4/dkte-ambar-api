@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const facultyAchievementSchema = new mongoose.Schema({
   name: { type: String, default: "" },
@@ -8,4 +8,4 @@ const facultyAchievementSchema = new mongoose.Schema({
   chapter: { type: String, default: "" },
 });
 
-module.exports = mongoose.model("FacultyAchievement", facultyAchievementSchema);
+export default mongoose.model("FacultyAchievement", facultyAchievementSchema);
