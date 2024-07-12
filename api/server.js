@@ -2,9 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import chalk from "chalk";
 import cookieParser from "cookie-parser";
-import connectToDB from "./src/db/connectToDB.js";
+import connectToDB from "../src/db/connectToDB.js";
 import cors from "cors"
-import facultyAchievementRoutes from "./src/routes/facultyAchievementRoutes.js"
+import facultyAchievementRoutes from "../src/routes/facultyAchievementRoutes.js"
 // import studentAchievementRoutes from "./src/routes/studentAchievementRoutes.js"
 import bodyParser from "body-parser";
 
