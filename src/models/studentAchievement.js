@@ -8,4 +8,5 @@ const studentAchievementSchema = new mongoose.Schema({
   description: { type: String },
 });
 
-export default mongoose.model("StudentAchievement", studentAchievementSchema);
+const StudentAchievement = mongoose.model("StudentAchievement", studentAchievementSchema);
+export default StudentAchievement;

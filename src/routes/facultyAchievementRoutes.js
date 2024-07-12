@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import FacultyAchievement from "../models/facultyAchievement";
+import FacultyAchievement from "../models/facultyAchievement.js";
 
 // Middleware to parse JSON and URL-encoded bodies
 router.use(express.json());

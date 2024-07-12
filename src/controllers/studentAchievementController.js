@@ -1,6 +1,6 @@
-import StudentAchievement from "../models/studentAchievement";
+import StudentAchievement from "../models/studentAchievement.js";
 
-export const createStudentAchievement = async (req, res) => {
+const createStudentAchievement = async (req, res) => {
   const achievements = req.body;
   try {
     await StudentAchievement.insertMany(achievements);
@@ -10,7 +10,7 @@ export const createStudentAchievement = async (req, res) => {
   }
 };
 
-export const getStudentAchievements = async (req, res) => {
+const getStudentAchievements = async (req, res) => {
   try {
     const data = await StudentAchievement.find();
     res.status(200).json(data);
@@ -18,3 +18,5 @@ export const getStudentAchievements = async (req, res) => {
     res.status(500).send("Error retrieving data");
   }
 };
+
+export { createStudentAchievement, getStudentAchievements };

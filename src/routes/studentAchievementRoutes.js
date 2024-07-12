@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import studentAchievementController from "../controllers/studentAchievementController";
+import { createStudentAchievement, getStudentAchievements } from "../controllers/studentAchievementController.js";
 
 router.post("/submit", studentAchievementController.createStudentAchievement);
 router.get("/getData", studentAchievementController.getStudentAchievements);

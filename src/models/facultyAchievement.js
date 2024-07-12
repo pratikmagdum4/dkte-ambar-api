@@ -8,4 +8,5 @@ const facultyAchievementSchema = new mongoose.Schema({
   chapter: { type: String, default: "" },
 });
 
-export default mongoose.model("FacultyAchievement", facultyAchievementSchema);
+const FacultyAchievement = mongoose.model("FacultyAchievement", facultyAchievementSchema);
+export default FacultyAchievement;
