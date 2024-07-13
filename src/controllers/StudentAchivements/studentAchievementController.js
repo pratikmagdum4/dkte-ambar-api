@@ -1,4 +1,4 @@
-import StudentAchievement from "../models/studentAchievement.js";
+import StudentAchievement from "../../models/StudentAchivements/studentAchievement.js";
 
 const createStudentAchievement = async (req, res) => {
   const achievements = req.body;
