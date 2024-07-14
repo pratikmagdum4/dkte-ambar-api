@@ -1,4 +1,4 @@
-import StudentAchievementAppreciationPrizeSchema from "../../models/StudentAchievements/studentAchievementAppreciationPrize.js";
+import StudentAchievementAppreciationPrizeSchema from "../../models/StudentAchievements/studentAchievementAppreciationPrizeModel.js";
 import {
   createAchievement,
   getAchievements,

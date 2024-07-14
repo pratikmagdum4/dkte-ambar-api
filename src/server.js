@@ -16,6 +16,11 @@ import FacultyAchievementWorkshop from "./routes/FacultyAchievements/facultyAchi
 import StudentAchievementAppreciationPrize from "./routes/StudentAchievements/studentAchievementAppreciationPrizeRoutes.js";
 import StudentAchievementPaperProject from "./routes/StudentAchievements/studentAchievementPaperProjectRoutes.js";
 import StudentAchievementSpecialAchievements from "./routes/StudentAchievements/studentAchievementSpecialAchievementsRoutes.js";
+import StudentAchievementHigherStudies from "./routes/StudentAchievements/studentAchievementHigherStudiesRoutes.js";
+import StudentAchievementInternationalTraining from "./routes/StudentAchievements/studentAchievementInternationalTrainingRoutes.js";
+import ClubReports from "./routes/ClubReports/ClubReportsRoutes.js";
+import MainEvents from "./routes/MainEvents/MainEventsRoutes.js";
+import SponsorList from "./routes/SponsoresList/SponsoresListRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -62,7 +67,20 @@ app.use(
   "/api/studentachievements/specialachievements",
   StudentAchievementSpecialAchievements
 );
+app.use(
+  "/api/studentachievements/higherstudies",
+  StudentAchievementHigherStudies
+);
+app.use(
+  "/api/studentachievements/internationaltraining",
+  StudentAchievementInternationalTraining
+);
 
+app.use("/api/clubreports", ClubReports);
+
+app.use("/api/mainevents", MainEvents);
+
+app.use("/api/sponsorslist", SponsorList);
 app.get("/", (req, res) => {
   res.json({ message: "hello from Amber server" });
 });
