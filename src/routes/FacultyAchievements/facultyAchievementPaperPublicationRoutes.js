@@ -13,7 +13,7 @@ router.use(express.urlencoded({ extended: true }));
 
 router.post("/submit", createFacultyAchievementPaperPublication);
 
-router.get("/getData", getFacultyAchievementsPaperPublication);
+router.get("/getdata", getFacultyAchievementsPaperPublication);
 router.delete("/:id", deleteFacultyAchievementPaperPublication);
 router.put("/:id", updateFacultyAchievementPaperPublication);
 

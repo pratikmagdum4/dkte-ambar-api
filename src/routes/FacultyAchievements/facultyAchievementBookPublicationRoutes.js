@@ -12,7 +12,7 @@ router.use(express.urlencoded({ extended: true }));
 
 router.post("/submit", createFacultyAchievementBookPublication);
 router.delete("/:id", deleteFacultyAchievementBookPublication);
-router.get("/getData", getFacultyAchievementsBookPublication);
+router.get("/getdata", getFacultyAchievementsBookPublication);
 router.put("/:id", updateFacultyAchievementBookPublication);
 
 export default router;

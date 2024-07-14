@@ -12,7 +12,6 @@ const createFacultyAchievementOtherSpecial = async (req, res) => {
         srno,
         info,
       });
-
       if (existingAchievement) {
         savedAchievements.push(existingAchievement);
       } else {

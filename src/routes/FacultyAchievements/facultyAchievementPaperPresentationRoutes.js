@@ -14,7 +14,7 @@ router.use(express.urlencoded({ extended: true }));
 
 router.post("/submit", createFacultyAchievementPaperPresentation);
 router.delete("/:id", deleteFacultyAchievementPaperPresentation);
-router.get("/getData", getFacultyAchievementsPaperPresentation);
+router.get("/getdata", getFacultyAchievementsPaperPresentation);
 router.put("/:id", updateFacultyAchievementPaperPresentation);
 
 export default router;

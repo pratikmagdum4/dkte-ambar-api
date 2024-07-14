@@ -13,8 +13,9 @@ import facultyAchievementPaperPresentationRoutes from "./routes/FacultyAchieveme
 import FacultyAchievementPatentGrant from "./routes/FacultyAchievements/facultyAchievementPatentGrantRoutes.js";
 import FacultyAchievementTrainingProgrammes from "./routes/FacultyAchievements/facultyAchievementTrainingProgrammesRoutes.js";
 import FacultyAchievementWorkshop from "./routes/FacultyAchievements/facultyAchievementWorkshopRoutes.js";
-
-
+import StudentAchievementAppreciationPrize from "./routes/StudentAchievements/studentAchievementAppreciationPrizeRoutes.js";
+import StudentAchievementPaperProject from "./routes/StudentAchievements/studentAchievementPaperProjectRoutes.js";
+import StudentAchievementSpecialAchievements from "./routes/StudentAchievements/studentAchievementSpecialAchievementsRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -47,6 +48,21 @@ app.use(
   "/api/facultyachievement/trainingprogrammes",FacultyAchievementTrainingProgrammes
 )
 app.use("/api/facultyachievement/workshop", FacultyAchievementWorkshop);
+
+app.use(
+  "/api/studentachievements/appreciationprize",
+  StudentAchievementAppreciationPrize
+);
+app.use(
+  "/api/studentachievements/paperproject",
+  StudentAchievementPaperProject
+);
+
+app.use(
+  "/api/studentachievements/specialachievements",
+  StudentAchievementSpecialAchievements
+);
+
 app.get("/", (req, res) => {
   res.json({ message: "hello from Amber server" });
 });

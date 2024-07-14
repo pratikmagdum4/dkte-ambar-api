@@ -14,7 +14,7 @@ router.use(express.urlencoded({ extended: true }));
 
 router.post("/submit", createFacultyAchievementTrainingProgrammes);
 router.delete("/:id", deleteFacultyAchievementTrainingProgrammes);
-router.get("/getData", getFacultyAchievementsTrainingProgrammes);
+router.get("/getdata", getFacultyAchievementsTrainingProgrammes);
 router.put("/:id", updateFacultyAchievementTrainingProgrammes);
 
 export default router;

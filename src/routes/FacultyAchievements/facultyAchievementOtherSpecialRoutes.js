@@ -14,7 +14,7 @@ router.use(express.urlencoded({ extended: true }));
 
 router.post("/submit", createFacultyAchievementOtherSpecial);
 router.delete("/:id", deleteFacultyAchievementOtherSpecial);
-router.get("/getData", getFacultyAchievementsOtherSpecial);
+router.get("/getdata", getFacultyAchievementsOtherSpecial);
 router.put("/:id", updateFacultyAchievementOtherSpecial);
 
 export default router;

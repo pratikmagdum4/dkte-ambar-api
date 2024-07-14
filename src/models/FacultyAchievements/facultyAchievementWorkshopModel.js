@@ -10,3 +10,4 @@ const FacultyAchievementWorkshopSchema = mongoose.model(
 );
 
 export default FacultyAchievementWorkshopSchema;
+
