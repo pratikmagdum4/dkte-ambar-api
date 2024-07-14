@@ -1,31 +1,26 @@
-import FacultyAchievement from "../../models/FacultyAchivement/facultyAchievementBookPublicationModel.js";
+import FacultyAchievementPaperPublicationSchema from "../../models/FacultyAchievements/facultyAchievementPaperPublicationModel.js";
 
-const createFacultyAchievementBookPublication = async (req, res) => {
+const createFacultyAchievementPaperPublication = async (req, res) => {
   try {
-    console.log("hi i m in controller");
+    console.log("hi i m in paper controller");
     const achievementsArray = req.body;
 
     const savedAchievements = [];
     for (const achievement of achievementsArray) {
-      const { name, title, agency, isbnno, chapter } = achievement;
+      const { srno, info } = achievement;
 
-      let existingAchievement = await FacultyAchievement.findOne({
-        name,
-        title,
-        agency,
-        isbnno,
-        chapter,
-      });
+      let existingAchievement =
+        await FacultyAchievementPaperPublicationSchema.findOne({
+          srno,
+          info,
+        });
       if (existingAchievement) {
         savedAchievements.push(existingAchievement);
       } else {
         // Create a new achievement document
-        const newAchievement = new FacultyAchievement({
-          name,
-          title,
-          agency,
-          isbnno,
-          chapter,
+        const newAchievement = new FacultyAchievementPaperPublicationSchema({
+          srno,
+          info,
         });
         // Save the new achievement
         const savedAchievement = await newAchievement.save();
@@ -40,44 +35,45 @@ const createFacultyAchievementBookPublication = async (req, res) => {
   }
 };
 
-const getFacultyAchievementsBookPublication = async (req, res) => {
+const getFacultyAchievementsPaperPublication = async (req, res) => {
   try {
-    const achievements = await FacultyAchievement.find();
+    const achievements = await FacultyAchievementPaperPublicationSchema.find();
     res.status(200).send(achievements);
   } catch (error) {
+    console.log("having error ");
     res.status(400).send(error);
   }
 };
 
-const deleteFacultyAchievementBookPublication = async (req, res) => {
+const deleteFacultyAchievementPaperPublication = async (req, res) => {
   const { id } = req.params;
   console.log("hi i here in delete ");
   try {
-    const achievement = await FacultyAchievement.findByIdAndDelete(id);
+    const achievement =
+      await FacultyAchievementPaperPublicationSchema.findByIdAndDelete(id);
     if (!achievement) {
       return res.status(404).json({ message: "Achievement not found" });
     }
     res.status(200).json({ message: "Achievement deleted successfully" });
   } catch (error) {
+    console.log("hi i here in delete error is ", error);
     res.status(500).json({ message: "Error deleting achievement" });
   }
 };
 
-const updateFacultyAchievementBookPublication = async (req, res) => {
+const updateFacultyAchievementPaperPublication = async (req, res) => {
   const { id } = req.params;
-  const { name, title, agency, isbnno, chapter } = req.body;
+  const { srno, info } = req.body;
   try {
-    const updatedAchievement = await FacultyAchievement.findByIdAndUpdate(
-      id,
-      {
-        name,
-        title,
-        agency,
-        isbnno,
-        chapter,
-      },
-      { new: true }
-    );
+    const updatedAchievement =
+      await FacultyAchievementPaperPublicationSchema.findByIdAndUpdate(
+        id,
+        {
+          srno,
+          info,
+        },
+        { new: true }
+      );
     if (!updatedAchievement) {
       return res.status(404).json({ message: "Achievement not found" });
     }
@@ -91,8 +87,8 @@ const updateFacultyAchievementBookPublication = async (req, res) => {
 };
 
 export {
-  createFacultyAchievementBookPublication,
-  getFacultyAchievementsBookPublication,
-  deleteFacultyAchievementBookPublication,
-  updateFacultyAchievementBookPublication,
+  createFacultyAchievementPaperPublication,
+  getFacultyAchievementsPaperPublication,
+  deleteFacultyAchievementPaperPublication,
+  updateFacultyAchievementPaperPublication,
 };

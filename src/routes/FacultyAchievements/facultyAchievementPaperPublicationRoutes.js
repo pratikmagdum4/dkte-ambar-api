@@ -1,20 +1,20 @@
-import express from "express"
+import express from "express";
 const router = express.Router();
 
 import {
-    createFacultyAchievementPaperPublication,
-    deleteFacultyAchievementPaperPublication,
-    getFacultyAchievementsPaperPublication,
-    updateFacultyAchievementPaperPublication
-}from  "../../controllers/FacultyAchivements/facultyAchievementPaperPublicationController.js";
+  createFacultyAchievementPaperPublication,
+  deleteFacultyAchievementPaperPublication,
+  getFacultyAchievementsPaperPublication,
+  updateFacultyAchievementPaperPublication,
+} from "../../controllers/FacultyAchievements/facultyAchievementPaperPublicationController.js";
 
 router.use(express.json());
-router.use(express.urlencoded({extended:true}));
+router.use(express.urlencoded({ extended: true }));
 
-router.post("/submit",createFacultyAchievementPaperPublication)
+router.post("/submit", createFacultyAchievementPaperPublication);
 
-router.get("/getData",getFacultyAchievementsPaperPublication);
+router.get("/getData", getFacultyAchievementsPaperPublication);
 router.delete("/:id", deleteFacultyAchievementPaperPublication);
-router.put("/:id",updateFacultyAchievementPaperPublication);
+router.put("/:id", updateFacultyAchievementPaperPublication);
 
 export default router;

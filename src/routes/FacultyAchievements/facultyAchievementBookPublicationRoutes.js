@@ -5,7 +5,7 @@ import {
   deleteFacultyAchievementBookPublication,
   getFacultyAchievementsBookPublication,
   updateFacultyAchievementBookPublication,
-} from "../../controllers/FacultyAchivements/facultyAchievementBookPublicationController.js";
+} from "../../controllers/FacultyAchievements/facultyAchievementBookPublicationController.js";
 // Middleware to parse JSON and URL-encoded bodies
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
