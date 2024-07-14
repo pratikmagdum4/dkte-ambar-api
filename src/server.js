@@ -21,6 +21,13 @@ import StudentAchievementInternationalTraining from "./routes/StudentAchievement
 import ClubReports from "./routes/ClubReports/ClubReportsRoutes.js";
 import MainEvents from "./routes/MainEvents/MainEventsRoutes.js";
 import SponsorList from "./routes/SponsoresList/SponsoresListRoutes.js";
+import UpGraduation from "./routes/UpGraduation/UpGraduationRoutes.js";
+
+
+
+
+
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -77,10 +84,9 @@ app.use(
 );
 
 app.use("/api/clubreports", ClubReports);
-
 app.use("/api/mainevents", MainEvents);
-
 app.use("/api/sponsorslist", SponsorList);
+app.use("/api/upgraduation", UpGraduation);
 app.get("/", (req, res) => {
   res.json({ message: "hello from Amber server" });
 });
